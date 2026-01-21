@@ -1,0 +1,20 @@
+@import 'tailwindcss';
+
+:root{
+  --dark-color:#102030;
+  --light-gray:#eeebeb;
+  --default-font:"Roboto", sans-serif;
+  --title-font:"Bricolage Grotesque", sans-serif;
+  --action-font:"Inter", sans-serif;
+}
+::selection{
+  color:var(--dark-color);
+  background:#f7cb54;
+}
+
+body{font-family:var(--default-font); font-size:14px; color:var(--dark-color); background-color:var(--light-gray);}
+
+h1,h2,h3,h4{font-family: var(--title-font);}
+a,button, input[type="submit"] {font-family:var(--action-font);}
+
+.apexcharts-toolbar{display: none !important;}
