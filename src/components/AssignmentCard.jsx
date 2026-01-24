@@ -2,9 +2,9 @@ import React from "react";
 
 function AssignmentCard({assinment}) {
   return (
-    <div className="bg-white rounded-xl shadow p-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+    <div className="bg-white dark:bg-gray-900 rounded-xl shadow p-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
       <div>
-        <h2 className="text-lg font-semibold text-gray-800">
+        <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-400">
           Build Admin Dashboard
         </h2>
         <p className="text-sm text-gray-500">
@@ -23,7 +23,7 @@ function AssignmentCard({assinment}) {
 
       <div className="text-sm text-gray-500">
         <p>
-          Due: <span className="font-medium text-gray-800">25 Jan 2026</span>
+          Due: <span className="font-medium text-gray-800 dark:text-gray-400">25 Jan 2026</span>
         </p>
       </div>
     </div>

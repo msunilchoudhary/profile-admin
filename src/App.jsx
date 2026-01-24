@@ -1,31 +1,20 @@
-import { createContext, useCallback, useMemo, useState } from "react";
+// import { createContext, useCallback, useMemo, useState } from "react";
 import Header from "./components/Header";
 import LeftSideBar from "./components/LeftSideBar";
 import MainComponetContainer from "./components/MainComponetContainer";
 import { BrowserRouter } from "react-router-dom";
-import avtarImg from './assets/images/avtar.webp'
-
-export const AppContext = createContext();
+import Footer from "./components/Footer";
+import { AppContextProvider } from "./stores/AppContext";
 
 function App() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-
-  const handleSidebar = useCallback(() => {
-    setIsSidebarOpen((prev) => !prev);
-  });
-
-  const contextValues = useMemo(
-    () => ({ isSidebarOpen, handleSidebar, avtarImg }),
-    [isSidebarOpen, handleSidebar],
-  );
-
   return (
     <BrowserRouter>
-      <AppContext.Provider value={contextValues}>
+      <AppContextProvider>
         <Header />
         <LeftSideBar />
         <MainComponetContainer />
-      </AppContext.Provider>
+        <Footer />
+      </AppContextProvider>
     </BrowserRouter>
   );
 }

@@ -13,22 +13,22 @@ function Dashboard() {
         
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-        <div className="bg-white rounded-xl shadow p-6 overflow-auto">
+        <div className="bg-white dark:bg-gray-900 rounded-xl shadow p-6 overflow-auto">
           <h3 className="text-xl font-bold mb-8">Expertise</h3>
           <ApexChart />
         </div>
-        <div className="bg-white rounded-xl shadow p-6 overflow-auto">
+        <div className="bg-white rounded-xl dark:bg-gray-900 shadow p-6 overflow-auto">
             <h3 className="text-xl font-bold mb-8">Technologies with experience</h3>
             <PieChartCom />
         </div>        
       </div>
-      <div className="bg-white rounded-xl shadow p-6 overflow-auto">
+      <div className="bg-white dark:bg-gray-900 rounded-xl shadow p-6 overflow-auto">
         <h2 className="text-xl font-semibold mb-4">Experience</h2>
 
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
-              <tr className="text-left text-gray-500 border-b">
+              <tr className="text-left text-gray-500 dark:text-orange-400 border-b dark:border-b-gray-800">
                 <th className="pb-3">Company Name</th>
                 <th className="pb-3">Designation</th>
                 <th className="pb-3">Date of Join</th>
@@ -38,7 +38,7 @@ function Dashboard() {
             </thead>
 
             <tbody className="divide-y">
-              <tr>
+              <tr className="border-b-gray-800">
                 <td className="py-3">E-Trade Services</td>
                 <td>Web Designer</td>
                 <td>July 2011</td>
@@ -48,7 +48,7 @@ function Dashboard() {
                   </span></td>
               </tr>
 
-              <tr>
+              <tr className="border-b-gray-800">
                 <td className="py-3">Centaur Web Services</td>
                 <td>Web Designer</td>
                 <td>February 2012</td>
@@ -58,7 +58,7 @@ function Dashboard() {
                   </span></td>
               </tr>
 
-              <tr>
+              <tr className="border-b-gray-800">
                 <td className="py-3">Afycon Technologies</td>
                 <td>Web Designer</td>
                 <td>October 2013</td>
@@ -67,7 +67,7 @@ function Dashboard() {
                     Not Running
                   </span></td>
               </tr>
-              <tr>
+              <tr className="border-b-gray-800">
                 <td className="py-3">Marg ERP Limited</td>
                 <td>Frontend Designer & Developer</td>
                 <td>November 2015</td>
@@ -76,7 +76,7 @@ function Dashboard() {
                     Running
                   </span></td>
               </tr>
-              <tr>
+              <tr className="border-b-gray-800">
                 <td className="py-3">OMLogic Consulting</td>
                 <td>Frontend Developer</td>
                 <td>May 2019</td>
@@ -85,7 +85,7 @@ function Dashboard() {
                     Running
                   </span></td>
               </tr>
-              <tr>
+              <tr className="border-b-gray-800">
                 <td className="py-3">Digics Pvt. Ltd.</td>
                 <td>Lead Frontend Web Developer</td>
                 <td>January 2020</td>
@@ -94,7 +94,7 @@ function Dashboard() {
                     Running
                   </span></td>
               </tr>
-              <tr>
+              <tr className="border-b-gray-800">
                 <td className="py-3">Marg Books/Marg ERP Limited</td>
                 <td>Lead Frontend Web Developer</td>
                 <td>November 2023</td>

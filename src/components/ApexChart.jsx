@@ -42,7 +42,7 @@ const ApexChart = () => {
 
   return (
     <div>
-      <div id="chart">
+      <div className="graphChart">
         <ReactApexChart
           options={state.options}
           series={state.series}

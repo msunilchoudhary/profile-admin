@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function ProjectCard() {
   return (
-    <div className="bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden">
+    <div className="bg-white dark:bg-gray-900 rounded-xl shadow hover:shadow-lg transition overflow-hidden">
       <img
         src="https://via.placeholder.com/600x350"
         alt="Project"
@@ -13,10 +13,10 @@ function ProjectCard() {
 
       <div className="p-5">
         <div className="flex justify-between items-start">
-          <h2 className="text-lg font-semibold text-gray-800">
+          <h2 className="text-lg font-semibold text-gray-800 dark:text-white">
             E-Commerce Dashboard
           </h2>
-          <span className="px-3 py-1 text-xs rounded-full bg-green-100 text-green-700">
+          <span className="px-3 py-1 text-xs rounded-full bg-green-100 dark:bg-green-900 dark:text-gray-300 text-green-700">
             Completed
           </span>
         </div>
