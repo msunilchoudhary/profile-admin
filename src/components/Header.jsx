@@ -1,16 +1,16 @@
 import Button from '@mui/material/Button'
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { RiMenuUnfold2Line, RiMenuUnfoldLine } from "react-icons/ri";
 import { AppContext } from '../stores/AppContext';
-import LogoDark from '../assets/images/msc-dark.png';
-import LogoLight from '../assets/images/msc-light.png';
+
 import ThemeMode from './ThemeMode';
 import NotificationBtn from './NotificationBtn';
 import UserSettings from './UserSettings';
 
 
 function Header() {
-    const {handleSidebar, isSidebarOpen, avtarImg, theme} = useContext(AppContext)
+    const {handleSidebar, isSidebarOpen, avtarImg, theme, LogoDark, LogoLight} = useContext(AppContext)
+    
   return (
     <header className="fixed top-0 left-0 right-0 h-16 bg-white dark:bg-gray-950 shadow-sm z-50">
     <div className="flex items-center justify-between px-6 h-full">      

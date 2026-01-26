@@ -12,6 +12,20 @@
   color:var(--dark-color);
   background:#f7cb54;
 }
+::-webkit-scrollbar {
+  width:4px;
+}
+::-webkit-scrollbar-track {
+  background:transparent;
+}
+::-webkit-scrollbar-thumb {
+  background:#ca9503;
+  border-radius:20px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #1cb0ca;
+}
+
 
 @layer components {
   .input {
@@ -40,3 +54,7 @@ a,button, input[type="submit"] {font-family:var(--action-font);}
 .dark .graphChart svg text{fill:#b6b5b5;}
 .dark .graphChart svg .apexcharts-series path{fill:rgb(192, 134, 26);}
 .dark .MuiChartsLabel-root.MuiChartsLegend-label{color:#b6b5b5;}
+
+.leftMenuBar li:hover .rightArrow{right:16px;}
+.rgs-bg{background-image:url('assets/images/register-bg.jpg'); background-position:center;}
+.big-bg{background:url('assets/images/big-data-consulting-bg-1920.jpg') no-repeat;}

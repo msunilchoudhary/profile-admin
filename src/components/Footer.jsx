@@ -4,8 +4,8 @@ import { AppContext } from "../stores/AppContext";
 function Footer() {
     const {isSidebarOpen} = useContext(AppContext)
   return (
-    <footer className={`${isSidebarOpen?'ml-64':'ml-0'} bg-white dark:bg-gray-900 border-t dark:border-t-gray-800 border-gray-200 transition-all duration-300`}>
-      <div className="px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-2">
+    <footer className={`${isSidebarOpen? "lg:ml-64" : "ml-0"} bg-white dark:bg-gray-900 border-t dark:border-t-gray-800 border-gray-300 transition-all duration-300`}>
+      <div className="px-6 py-5 flex flex-col md:flex-row items-center justify-between gap-2">
         {/* <!-- Left --> */}
         <p className="text-sm text-gray-500">
           © 2026 <span className="font-medium text-gray-700">Admin Dashboard</span>.

@@ -1,10 +1,17 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { AppContext } from "../stores/AppContext";
 
 function UserSettings({ avtar }) {
     const {isUserDropdownOpen, handleUserBtn} = useContext(AppContext)
+    const [username, setUsername] = useState("");
+
+    useEffect(()=>{
+      const getUser = localStorage.getItem("rememberedUsername")
+      console.log(getUser)
+      setUsername(getUser)
+    },[])
   return (
     <>
       <div className="relative inline-block text-left">
@@ -20,7 +27,7 @@ function UserSettings({ avtar }) {
             className="w-8 h-8 rounded-full object-cover"
           />
           <span className="hidden md:block text-sm font-medium text-gray-700 dark:text-white">
-            Sunil
+            {username}
           </span>
           {!isUserDropdownOpen ? <MdOutlineKeyboardArrowDown className="text-lg" /> : <MdOutlineKeyboardArrowUp className="text-lg" />}
           
@@ -35,6 +42,7 @@ function UserSettings({ avtar }) {
           <div className="py-2">
             <Link
               to="/profile"
+              onClick={handleUserBtn}
               className="flex items-center gap-2 px-4 py-2 text-sm
                text-gray-700 hover:bg-gray-100"
             >
@@ -43,6 +51,7 @@ function UserSettings({ avtar }) {
 
             <Link
               to="/"
+              onClick={handleUserBtn}
               className="flex items-center gap-2 px-4 py-2 text-sm
                text-gray-700 hover:bg-gray-100"
             >
@@ -51,6 +60,7 @@ function UserSettings({ avtar }) {
 
             <Link
               to="/change-password"
+              onClick={handleUserBtn}
               className="flex items-center gap-2 px-4 py-2 text-sm
                text-gray-700 hover:bg-gray-100"
             >

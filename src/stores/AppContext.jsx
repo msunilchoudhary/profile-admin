@@ -1,5 +1,7 @@
 import { createContext, useCallback, useEffect, useMemo, useState } from "react";
 import avtarImg from "../assets/images/avtar.webp";
+import LogoDark from '../assets/images/msc-dark.png';
+import LogoLight from '../assets/images/msc-light.png';
 
 export const AppContext = createContext(null);
 
@@ -39,6 +41,8 @@ export const AppContextProvider = ({ children }) => {
       isSidebarOpen,
       handleSidebar,
       avtarImg,
+      LogoDark,
+      LogoLight,
       isUserDropdownOpen,
       handleUserBtn,
       isNotificationDropdownOpen,

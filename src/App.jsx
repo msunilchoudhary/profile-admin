@@ -5,15 +5,13 @@ import MainComponetContainer from "./components/MainComponetContainer";
 import { BrowserRouter } from "react-router-dom";
 import Footer from "./components/Footer";
 import { AppContextProvider } from "./stores/AppContext";
+import { useState } from "react";
 
 function App() {
   return (
     <BrowserRouter>
-      <AppContextProvider>
-        <Header />
-        <LeftSideBar />
+      <AppContextProvider>               
         <MainComponetContainer />
-        <Footer />
       </AppContextProvider>
     </BrowserRouter>
   );
