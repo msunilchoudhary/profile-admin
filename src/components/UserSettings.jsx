@@ -3,15 +3,11 @@ import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from "react-icon
 import { Link } from "react-router-dom";
 import { AppContext } from "../stores/AppContext";
 
-function UserSettings({ avtar }) {
-    const {isUserDropdownOpen, handleUserBtn} = useContext(AppContext)
-    const [username, setUsername] = useState("");
 
-    useEffect(()=>{
-      const getUser = localStorage.getItem("rememberedUsername")
-      console.log(getUser)
-      setUsername(getUser)
-    },[])
+function UserSettings({ avtar }) {
+    const {isUserDropdownOpen, handleUserBtn, logoutUser, authUser} = useContext(AppContext)
+
+      
   return (
     <>
       <div className="relative inline-block text-left">
@@ -22,12 +18,12 @@ function UserSettings({ avtar }) {
           dark:hover:bg-blue-900 hover:bg-gray-100 focus:outline-none"
         >
           <img
-            src={avtar}
+            src={authUser?.photo?.url || avtar}
             alt="User"
             className="w-8 h-8 rounded-full object-cover"
           />
           <span className="hidden md:block text-sm font-medium text-gray-700 dark:text-white">
-            {username}
+            {authUser?.firstName}            
           </span>
           {!isUserDropdownOpen ? <MdOutlineKeyboardArrowDown className="text-lg" /> : <MdOutlineKeyboardArrowUp className="text-lg" />}
           
@@ -35,8 +31,8 @@ function UserSettings({ avtar }) {
 
         {isUserDropdownOpen && <div className="absolute right-0 mt-2 w-56 bg-white border border-gray-300 rounded-xl shadow-lg z-50">
           <div className="px-4 py-3 border-b border-b-gray-300">
-            <p className="text-sm font-semibold text-gray-800">Sunil Choudhary</p>
-            <p className="text-xs text-gray-500">admin@example.com</p>
+            <p className="text-sm font-semibold text-gray-800">{authUser?.firstName} {authUser?.lastName}</p>
+            <p className="text-xs text-gray-500">{authUser?.email}</p>
           </div>
 
           <div className="py-2">
@@ -70,7 +66,8 @@ function UserSettings({ avtar }) {
 
           <div className="border-t border-t-gray-300">
             <button
-              className="w-full flex items-center gap-2 px-4 py-3 text-sm
+              onClick={logoutUser}
+              className="w-full flex items-center cursor-pointer gap-2 px-4 py-3 text-sm
                text-red-600 hover:bg-red-50"
             >
               🚪 Logout

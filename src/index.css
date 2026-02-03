@@ -37,7 +37,7 @@
   }
 
   .label {
-    @apply block mb-1 text-sm font-medium 
+    @apply block mb-1 text-sm font-semibold 
     text-gray-700 dark:text-gray-300;
   }
 }
@@ -58,3 +58,8 @@ a,button, input[type="submit"] {font-family:var(--action-font);}
 .leftMenuBar li:hover .rightArrow{right:16px;}
 .rgs-bg{background-image:url('assets/images/register-bg.jpg'); background-position:center;}
 .big-bg{background:url('assets/images/big-data-consulting-bg-1920.jpg') no-repeat;}
+
+.MuiButtonBase-root{padding:2px 8px !important; font-size:12px !important;}
+.MuiTypography-root{font-size:14px !important;}
+.MuiPaper-root.MuiPaper-elevation{max-height:250px;}
+.MuiSelect-select{padding-top:13px !important; padding-bottom: 12px !important;}

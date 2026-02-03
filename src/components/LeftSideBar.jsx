@@ -8,7 +8,7 @@ import { FaComments, FaEnvelope, FaFolderOpen, FaGraduationCap } from "react-ico
 
 
 function LeftSideBar() {
-  const { isSidebarOpen } = useContext(AppContext);
+  const { isSidebarOpen, logoutUser } = useContext(AppContext);
   const [isActiveTab, setIsActiveTab] = useState("Dashboard")
   const [isOpenSubmenu, setIsOpenSubmenu] = useState(null)
 
@@ -81,7 +81,7 @@ function LeftSideBar() {
         </ul>
 
         <div className="fixed flex justify-center bottom-0 w-full border-t border-t-blue-300 dark:border-t-gray-800 -ml-4 dark:bg-gray-900 bg-blue-100">
-          <button className="flex items-center gap-1 justify-center w-full p-4.75 dark:text-orange-300 hover:bg-red-500 text-gray-600 hover:text-red-100 bg-gray-200 cursor-pointer">
+          <button onClick={logoutUser} className="flex items-center gap-1 justify-center w-full p-4.75 dark:text-orange-300 hover:bg-red-500 text-gray-600 hover:text-red-100 bg-gray-200 cursor-pointer">
             <IoMdLogOut className="text-xl" />
             Logout
           </button>

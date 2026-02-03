@@ -1,32 +1,42 @@
 import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../stores/AppContext";
 import Input from "../components/Input";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { FaGithub, FaGoogle } from "react-icons/fa6";
+import axios from "axios";
 
 function SignIn() {
-  const { theme, LogoDark, LogoLight } = useContext(AppContext);
+  const { theme, LogoDark, LogoLight, loginUser, isAuthenticated, loading,} =
+    useContext(AppContext);
 
   const [loginForm, setLoginForm] = useState({
-    username:"",
-    password:"",
-    rememberMe:false
+    username: "",
+    password: "",
+    rememberMe: false,
   });
   const [errMsg, setErrMsg] = useState({});
 
-  useEffect(()=>{
-    const savedUsername = localStorage.getItem("rememberedUsername");
+   useEffect(() => {
+    const savedUsername = localStorage.getItem("loggedInData");
 
-    if(savedUsername){
-        setLoginForm((prev)=> ({...prev, username:savedUsername, rememberMe:true}))
+    if (savedUsername) {
+      setLoginForm((prev) => ({
+        ...prev,
+        username: savedUsername,
+        rememberMe: true,
+      }));
     }
-  },[])
+  }, []);
 
   const navigate = useNavigate();
 
+
   const handleFormOnChange = (e) => {
-    const {name, value, checked, type} = e.target;
-    setLoginForm((prev) => ({...prev, [name]: type === 'checkbox'? checked :value}))
+    const { name, value, checked, type } = e.target;
+    setLoginForm((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+    }));
     setErrMsg((prev) => ({ ...prev, [name]: "" }));
   };
 
@@ -45,29 +55,30 @@ function SignIn() {
     return Object.keys(newErrMsg).length === 0;
   };
 
-  const handleLoginFormSubmit = (e) => {
+  const handleLoginFormSubmit = async (e) => {
     e.preventDefault();
 
     if (!loginFormValidate()) return;
 
     try {
-        if(loginForm.rememberMe){
-            localStorage.setItem("rememberedUsername", loginForm.username)
-        }else{
-            localStorage.removeItem("rememberedUsername")
-        }
+      const response = await axios.post("/api/user/signin", loginForm);
 
-        console.log(loginForm);
+      const loggedInData = response?.data?.data;
 
-        navigate("/", { replace: true })
-        
+      console.log(loggedInData);
+
+      loginUser(loggedInData);
+      if (loginForm.rememberMe) {
+        localStorage.setItem("loggedInData", JSON.stringify(loggedInData));
+      } else {
+        localStorage.removeItem("loggedInData");
+      }
+
+      navigate("/", { replace: true });
     } catch (error) {
-        setErrMsg({ form: "Invalid username or password" });
-        console.log(error)
-    }finally{
-        setLoginForm((prev)=>({...prev, password:""}))
-    }
-
+      setErrMsg({ form: "Invalid username or password" });
+      console.log(error);
+    } 
   };
 
   return (
@@ -89,8 +100,8 @@ function SignIn() {
             <form onSubmit={handleLoginFormSubmit} className="space-y-6">
               <div>
                 <Input
-                  label="Email address / Username"
-                  placeholder="Email address / Username"
+                  label="Email or Phone / Username"
+                  placeholder="Email or Phone / Username"
                   name="username"
                   value={loginForm.username}
                   onChange={handleFormOnChange}
